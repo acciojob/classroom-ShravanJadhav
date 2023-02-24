@@ -6,9 +6,9 @@ import java.util.*;
 
 @Repository
 public class StudentRepository {
-    private HashMap<String, Student> studentMap;
-    private HashMap<String, Teacher> teacherMap;
-    private HashMap<String, List<String>> teacherStudentPairMap;
+     HashMap<String, Student> studentMap;
+    HashMap<String, Teacher> teacherMap;
+    HashMap<String, List<String>> teacherStudentPairMap;
 
     public StudentRepository(){
         studentMap= new HashMap<>();
