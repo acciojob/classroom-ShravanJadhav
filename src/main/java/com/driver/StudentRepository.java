@@ -11,9 +11,9 @@ public class StudentRepository {
     HashMap<String, List<String>> teacherStudentPairMap;
 
     public StudentRepository(){
-        studentMap= new HashMap<>();
-        teacherMap = new HashMap<>();
-        teacherStudentPairMap = new HashMap<>();
+        this.studentMap= new HashMap<String, Student>();
+        this.teacherMap = new HashMap<String, Teacher>();
+        this.teacherStudentPairMap = new HashMap<String, List<String>>();
     }
 
     public void addStudent(Student student) {
@@ -59,6 +59,11 @@ public class StudentRepository {
     public void deleteTeacherByName(String teacher) {
          List<String> studentList = new ArrayList<>();
 
+         //find all movie and save in list
+         if(teacherStudentPairMap.containsKey(teacher)){
+             studentList = teacherStudentPairMap.get(teacher);
+         }
+
          //find all student and remove
         for(String student : studentList){
             studentMap.remove(student);
@@ -80,8 +85,8 @@ public class StudentRepository {
             studentSet.addAll(teacherStudentPairMap.get(teacher));
         }
 
-        for(String movie : studentSet){
-            studentMap.remove(movie);
+        for(String student : studentSet){
+            studentMap.remove(student);
         }
 
         teacherStudentPairMap = new HashMap<>();
